@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
+[SelectionBase]
 public class EditorSnap : MonoBehaviour
 {
-    [SerializeField] [Range(1f,20f)] float gridSize = 10f;
+    [SerializeField] [Range(1f, 20f)] float gridSize = 10f;
+
+    TextMesh textMesh;
+
+    private void Start()
+    {
+
+
+    }
+
     private void Update()
     {
-        Vector3 snap;
-        snap.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
+        Vector3 snapPos;
 
-        snap.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
+        textMesh = GetComponentInChildren<TextMesh>();
 
-        transform.position = new Vector3(snap.x, 0, snap.z);
+        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
+
+        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
+        transform.position = new Vector3(snapPos.x, 0, snapPos.z);
+
+        textMesh.text = snapPos.x / gridSize + "," + snapPos.z/ gridSize;
+
     }
 }
