@@ -4,30 +4,37 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [SelectionBase]
+[RequireComponent(typeof(Block))]
 public class EditorSnap : MonoBehaviour
 {
-    [SerializeField] [Range(1f, 20f)] float gridSize = 10f;
-
-    TextMesh textMesh;
-
-    private void Start()
+    Block block;
+    private void Awake()
     {
-
-
+        block = GetComponent<Block>();
     }
-
     private void Update()
     {
-        Vector3 snapPos;
+        SnapToGrid();
 
-        textMesh = GetComponentInChildren<TextMesh>();
-
-        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-
-        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
-        transform.position = new Vector3(snapPos.x, 0, snapPos.z);
-
-        textMesh.text = snapPos.x / gridSize + "," + snapPos.z/ gridSize;
+        UpdateLabel();
 
     }
+    private void SnapToGrid()
+    {
+        int gridSize = block.GetGridSize();
+
+
+        transform.position = new Vector3(block.GetGridPos().x, 0f, block.GetGridPos().y);
+    }
+
+    private void UpdateLabel()
+    {
+
+        int gridSize = block.GetGridSize();
+        TextMesh textMesh = GetComponentInChildren<TextMesh>();
+        string textLabel = block.GetGridPos().x / gridSize + "," + block.GetGridPos().y / gridSize;
+        textMesh.text = textLabel;
+        gameObject.name = "Cube " + textLabel;
+    }
 }
+
