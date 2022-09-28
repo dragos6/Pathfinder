@@ -24,7 +24,7 @@ public class EditorSnap : MonoBehaviour
         int gridSize = block.GetGridSize();
 
 
-        transform.position = new Vector3(block.GetGridPos().x, 0f, block.GetGridPos().y);
+        transform.position = new Vector3(block.GetGridPos().x * gridSize, 0f, block.GetGridPos().y * gridSize);
     }
 
     private void UpdateLabel()
@@ -32,7 +32,7 @@ public class EditorSnap : MonoBehaviour
 
         int gridSize = block.GetGridSize();
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
-        string textLabel = block.GetGridPos().x / gridSize + "," + block.GetGridPos().y / gridSize;
+        string textLabel = block.GetGridPos().x + "," + block.GetGridPos().y;
         textMesh.text = textLabel;
         gameObject.name = "Cube " + textLabel;
     }
