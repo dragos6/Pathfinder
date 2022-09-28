@@ -33,7 +33,7 @@ public class EditorSnap : MonoBehaviour
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
         string textLabel = block.GetGridPos().x + "," + block.GetGridPos().y;
         textMesh.text = textLabel;
-        gameObject.name = "Cube " + textLabel;
+        gameObject.name = textLabel;
     }
 }
 

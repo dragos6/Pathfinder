@@ -14,10 +14,10 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator FollowPath(List<Block> path)
     {
-        foreach (var item in path)
+        foreach (Block block in path)
         {
-            transform.position = item.transform.position;
-            yield return new WaitForSeconds(1f);
+            transform.position = block.transform.position;
+            yield return new WaitForSeconds(1.5f);
         }
     }
 
