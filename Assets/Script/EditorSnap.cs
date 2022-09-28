@@ -30,7 +30,6 @@ public class EditorSnap : MonoBehaviour
     private void UpdateLabel()
     {
 
-        int gridSize = block.GetGridSize();
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
         string textLabel = block.GetGridPos().x + "," + block.GetGridPos().y;
         textMesh.text = textLabel;

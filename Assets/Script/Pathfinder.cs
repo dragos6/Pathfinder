@@ -17,52 +17,88 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left
     };
 
+    List<Block> path = new List<Block>(); 
+
     [SerializeField] bool isRunning = true;
 
-    // Start is called before the first frame update
-    void Start()
+    Block searchCenter;
+
+    public List<Block> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        Pathfind();
-        //ExploreNeighbours();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 
-    private void Pathfind()
+    private void CreatePath()
+    {
+        path.Add(endPoint);
+
+        Block previous = endPoint.exploredFrom;
+        while (previous != startPoint)
+        {
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(startPoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startPoint);
-    
-        while(queue.Count > 0)
+
+        while (queue.Count > 0 && isRunning)
         {
-            var searchCenter = queue.Dequeue();
-            print(searchCenter);
-            StopIfEndFound(searchCenter);
+            searchCenter = queue.Dequeue();
+            searchCenter.isExplored = true;
+            StopIfEndFound();
+            ExploreNeighbours();
+
         }
     }
 
-    private void StopIfEndFound(Block searchCenter)
+    private void StopIfEndFound()
     {
-        isRunning = false;
-        Debug.Log("end");
+        if (searchCenter == endPoint)
+        {
+            isRunning = false;
+            Debug.Log("end");
+        }
     }
 
     private void ExploreNeighbours()
     {
+        if (!isRunning) { return; }
         foreach (Vector2Int direction in directions)
         {
-            Vector2Int newPos = startPoint.GetGridPos() + direction;
-            Debug.Log("exploring: "+ newPos);
-            try
+            Vector2Int newPos = searchCenter.GetGridPos() + direction;
+            if(grid.ContainsKey(newPos))
             {
-                grid[newPos].SetColor(Color.blue);
-
-            }
-            catch (Exception)
-            {
-
-                Debug.Log(" no cube there at" + newPos);
+                QueueNewNeighbours(newPos);
             }
         }
+    }
+
+    void QueueNewNeighbours(Vector2Int newPos)
+    {
+        Block neighbour = grid[newPos];
+
+        if (neighbour.isExplored || queue.Contains(neighbour))
+        {
+            // do nothing  
+
+        }
+        else
+        {
+            //neighbour.SetColor(Color.blue);
+            queue.Enqueue(neighbour);
+            neighbour.exploredFrom = searchCenter;
+           // yield return new WaitForSeconds(1);
+        }
+
     }
 
     private void ColorStartAndEnd()

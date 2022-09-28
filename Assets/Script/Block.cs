@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public bool isExplored = false;
+    public Block exploredFrom;
     Vector2Int gridPos;
     const int gridSize = 10;
 
@@ -16,13 +18,13 @@ public class Block : MonoBehaviour
     {
 
         return new Vector2Int(
-            Mathf.RoundToInt(transform.position.x / gridSize) ,
-            Mathf.RoundToInt(transform.position.z / gridSize) );
+            Mathf.RoundToInt(transform.position.x / gridSize),
+            Mathf.RoundToInt(transform.position.z / gridSize));
     }
 
     public void SetColor(Color color)
     {
-       MeshRenderer topMeshRenderer= transform.Find("Top").GetComponent<MeshRenderer>();
+        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
     }
 }
