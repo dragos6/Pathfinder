@@ -5,8 +5,10 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public bool isExplored = false;
+    public bool isPlaceable = true;
     public Block exploredFrom;
     Vector2Int gridPos;
+    [SerializeField] Tower tower;
     const int gridSize = 10;
 
     public int GetGridSize()
@@ -22,9 +24,27 @@ public class Block : MonoBehaviour
             Mathf.RoundToInt(transform.position.z / gridSize));
     }
 
-    public void SetColor(Color color)
+
+    private void OnMouseOver()
     {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (isPlaceable)
+            {
+
+                //Instantiate(tower, gameObject.transform);
+                Instantiate(tower, transform.position+(Vector3.up*10), Quaternion.identity) ;
+                isPlaceable = false;
+                print(gameObject.name);
+
+            }
+            else
+            {
+                print("Can't place here");
+            }
+
+        }
+        
+
     }
 }

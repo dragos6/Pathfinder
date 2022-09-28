@@ -4837,7 +4837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5097493832461819003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 9.998268, z: 10}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4859,9 +4859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 5094554018840181629}
-  targetEnemy: {fileID: 0}
   attackRange: 30
   projectileParticle: {fileID: 1128863325}
+  targetEnemy: {fileID: 0}
 --- !u!1001 &5097493833361706773
 PrefabInstance:
   m_ObjectHideFlags: 0
