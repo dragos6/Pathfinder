@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c107104e2430da840a74265eb7cc1e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionMesh: {fileID: 0}
+  hitPoints: 10
 --- !u!1001 &7492040181334880176
 PrefabInstance:
   m_ObjectHideFlags: 0

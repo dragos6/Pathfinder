@@ -12,7 +12,6 @@ public class EnemyDamage : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        print("I'm hit!");
         ProccessHit();
         if (hitPoints <= 1)
         {
@@ -25,7 +24,6 @@ public class EnemyDamage : MonoBehaviour
     void ProccessHit()
     {
         hitPoints = hitPoints - 1;
-        Debug.Log("Current hit points are" + hitPoints);
     }
     private void KillEnemy()
     {

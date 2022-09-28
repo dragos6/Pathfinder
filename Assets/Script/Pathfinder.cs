@@ -25,10 +25,13 @@ public class Pathfinder : MonoBehaviour
 
     public List<Block> GetPath()
     {
-        LoadBlocks();
-        ColorStartAndEnd();
-        BreadthFirstSearch();
-        CreatePath();
+        if(path.Count == 0)
+        {
+            LoadBlocks();
+            ColorStartAndEnd();
+            BreadthFirstSearch();
+            CreatePath();
+        }
         return path;
     }
 
@@ -65,7 +68,6 @@ public class Pathfinder : MonoBehaviour
         if (searchCenter == endPoint)
         {
             isRunning = false;
-            Debug.Log("end");
         }
     }
 
