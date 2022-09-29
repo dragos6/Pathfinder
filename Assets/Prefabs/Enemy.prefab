@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5d87826c5cfd84db248c628ddbda8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 520.05
+  explosionParticles: {fileID: 198537984209914932, guid: 75f6734b2df2f434c81e7918e8bd4431, type: 3}
 --- !u!114 &114078703179129330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,9 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c107104e2430da840a74265eb7cc1e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 10
+  hitPoints: 14
   hitParticles: {fileID: 198801793156136093}
   deathParticles: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
+  takingDamage: {fileID: 8300000, guid: 4ab32de2e5396a243acafa8b8db8407d, type: 3}
+  fatalDamage: {fileID: 8300000, guid: 3a096816b17503149b3a4ec3ae2ed96b, type: 3}
 --- !u!1 &1646541640735296
 GameObject:
   m_ObjectHideFlags: 0

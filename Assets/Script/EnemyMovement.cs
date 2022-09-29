@@ -12,9 +12,12 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 1.0f;
     private float startTime;
     private float journeyLength = 5f;
+    [SerializeField] ParticleSystem explosionParticles;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         path = pathfinder.GetPath();
         startTime = Time.time;
@@ -26,12 +29,20 @@ public class EnemyMovement : MonoBehaviour
         foreach (Block block in path)
         {
             end = block.transform;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(.8f);
 
         }
+        SelfDescruct();
         //isExecuting = false;
 
 
+    }
+    private void SelfDescruct()
+    {
+        var vfx = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        vfx.Play();
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

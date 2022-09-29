@@ -9,7 +9,6 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectToPan;
     [SerializeField] float attackRange = 40f;
     [SerializeField] ParticleSystem projectileParticle;
-
     public Block baseBlock;
     //State
     [SerializeField] Transform targetEnemy;
@@ -60,7 +59,9 @@ public class Tower : MonoBehaviour
         float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
         if (distanceToEnemy <= attackRange)
         {
+
             Shoot(true);
+            
         }
         else
         {
@@ -70,6 +71,7 @@ public class Tower : MonoBehaviour
 
     private void Shoot(bool v)
     {
+
         var emissionModule = projectileParticle.emission;
         emissionModule.enabled = v;
     }
