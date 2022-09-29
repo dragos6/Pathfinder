@@ -7,26 +7,42 @@ public class TowerFactory : MonoBehaviour
 {
     [SerializeField] int towerLimit = 5;
     [SerializeField] Tower tower;
+    [SerializeField] Transform towerParentTransform;
+    Queue<Tower> towersQueue = new Queue<Tower>();
 
-    int numTowers = 0;
     public void AddTower(Block baseBlock)
     {
+        
+        int numTowers = towersQueue.Count;
         if(numTowers < towerLimit)
         {
-            Instantiate(tower, baseBlock.transform.position + (Vector3.up * 10), Quaternion.identity);
+            var newTower =Instantiate(tower, baseBlock.transform.position, Quaternion.identity);
+            newTower.transform.parent = towerParentTransform;
             baseBlock.isPlaceable = false;
-            numTowers++;
+
+            newTower.baseBlock = baseBlock;
+            //baseBlock.isPlaceable = false;
+
+            towersQueue.Enqueue(newTower);
         }
         else
         {
-            MoveExistingTower();
+            MoveExistingTower(baseBlock);
         }
         
     }
 
-    private void MoveExistingTower()
+    private  void MoveExistingTower(Block newBaseBlock)
     {
         Debug.Log("Max towers reached");
+        var oldTower = towersQueue.Dequeue();
+
+        oldTower.baseBlock.isPlaceable = true;
+        newBaseBlock.isPlaceable = false;
+        oldTower.baseBlock = newBaseBlock;
+        oldTower.transform.position = newBaseBlock.transform.position ;
+
+        towersQueue.Enqueue(oldTower);
 
     }
 }

@@ -7,8 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [Range(0f, 120f)]
     [SerializeField] float secondsBetweenSpawns = 3f;
     [SerializeField] EnemyMovement Enemy;
-    int count = 0;
-
+    [SerializeField] Transform enemyParent;
     private void Start()
     {
         StartCoroutine(RepeatedlySpawnEnemies());
@@ -17,11 +16,11 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator RepeatedlySpawnEnemies()
     {
 
-        while (count<2)
+        while (true)
         {
-            Instantiate(Enemy, transform.position, Quaternion.identity);
+            var NewEnemy = Instantiate(Enemy, transform.position, Quaternion.identity);
+            NewEnemy.transform.parent = enemyParent;
             yield return new WaitForSeconds(secondsBetweenSpawns);
-            count++;
         }
     }
 }

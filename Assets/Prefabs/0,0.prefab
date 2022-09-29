@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 567066870579118559}
   - component: {fileID: 1215327881}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: 0,0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,8 +128,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5341889908018355160}
   - {fileID: 4443049620115848180}
+  - {fileID: 5341889908018355160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,7 +160,9 @@ MonoBehaviour:
   isExplored: 0
   isPlaceable: 1
   exploredFrom: {fileID: 0}
-  tower: {fileID: 5097493832461818997, guid: ae2acce9ab33f8e438f85e304d523da8, type: 3}
+  renderer: {fileID: 4464195217605709996}
+  placebleMaterial: {fileID: 2100000, guid: 3aeb81e0bacc90f43a5a8dfad41766f6, type: 2}
+  unplaceableMaterial: {fileID: 2100000, guid: 37b99336461214a40b89b24408e235bb, type: 2}
 --- !u!65 &1215327881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207,7 +209,7 @@ Transform:
   m_Children:
   - {fileID: 1325789172}
   m_Father: {fileID: 1106156093666656098}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8296698510617642824
 MeshFilter:
@@ -268,7 +270,7 @@ MeshCollider:
   m_GameObject: {fileID: 7507758109551671269}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -286,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_LocalScale.x
@@ -349,5 +351,10 @@ PrefabInstance:
 --- !u!4 &4443049620115848180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
+  m_PrefabInstance: {fileID: 4442550629581409802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4464195217605709996 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23395027866721958, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
   m_PrefabInstance: {fileID: 4442550629581409802}
   m_PrefabAsset: {fileID: 0}

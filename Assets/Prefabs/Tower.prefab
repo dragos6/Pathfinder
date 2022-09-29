@@ -4837,7 +4837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5097493832461819003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 9.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4861,6 +4861,7 @@ MonoBehaviour:
   objectToPan: {fileID: 5094554018840181629}
   attackRange: 30
   projectileParticle: {fileID: 1128863325}
+  baseBlock: {fileID: 0}
   targetEnemy: {fileID: 0}
 --- !u!1001 &5097493833361706773
 PrefabInstance:
@@ -4895,7 +4896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.998268
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4973,7 +4974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4676767254080446, guid: 4e889d43572027a409a3dab490438a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4676767254080446, guid: 4e889d43572027a409a3dab490438a22, type: 3}
       propertyPath: m_LocalPosition.z

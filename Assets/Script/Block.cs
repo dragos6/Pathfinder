@@ -11,11 +11,28 @@ public class Block : MonoBehaviour
     const int gridSize = 10;
     const string towerParentName = "Towers";
 
+    [SerializeField] Renderer renderer;
+   
+    [SerializeField] Material placebleMaterial, unplaceableMaterial;
+
+
     public int GetGridSize()
     {
         return gridSize;
     }
-
+    private void Update()
+    {
+        if (isPlaceable)
+        {
+            renderer.material = placebleMaterial;
+            
+        }
+        if(!isPlaceable)
+        {
+            renderer.material = unplaceableMaterial;
+        }
+        
+    }
     public Vector2Int GetGridPos()
     {
 
@@ -27,7 +44,7 @@ public class Block : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (isPlaceable)
             {
@@ -41,7 +58,7 @@ public class Block : MonoBehaviour
             }
 
         }
-        
+
 
     }
 }
