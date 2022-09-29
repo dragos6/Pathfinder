@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [Range(0f, 120f)]
     [SerializeField] float secondsBetweenSpawns = 3f;
     [SerializeField] EnemyMovement Enemy;
-
+    int count = 0;
 
     private void Start()
     {
@@ -17,11 +17,11 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator RepeatedlySpawnEnemies()
     {
 
-        while (true)
+        while (count<2)
         {
             Instantiate(Enemy, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(secondsBetweenSpawns);
-
+            count++;
         }
     }
 }

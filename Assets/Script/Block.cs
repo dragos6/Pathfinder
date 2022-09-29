@@ -33,7 +33,6 @@ public class Block : MonoBehaviour
             {
 
                 FindObjectOfType<TowerFactory>().AddTower(this);
-                print(gameObject.name);
 
             }
             else

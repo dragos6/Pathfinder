@@ -571,6 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 402951028}
   endPoint: {fileID: 2037636780}
+  blocksLoaded: 0
   isRunning: 1
 --- !u!114 &393096029
 MonoBehaviour:

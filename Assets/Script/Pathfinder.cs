@@ -8,6 +8,7 @@ public class Pathfinder : MonoBehaviour
     Dictionary<Vector2Int, Block> grid = new Dictionary<Vector2Int, Block>();
 
     [SerializeField] Block startPoint, endPoint;
+    public bool blocksLoaded = false;
     Queue<Block> queue = new Queue<Block>();
     Vector2Int[] directions =
         {
@@ -120,6 +121,7 @@ public class Pathfinder : MonoBehaviour
                 grid.Add(waypoint.GetGridPos(), waypoint);
             }
         }
+        blocksLoaded = true;
         print($"Loaded {grid.Count} blocks");
     }
 
