@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelfDestruct : MonoBehaviour
 {
 
-    public float timeLeft = 5f;
+    public float timeLeft = 2.5f;
 
     void Update()
     {

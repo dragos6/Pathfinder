@@ -8,8 +8,8 @@ public class Block : MonoBehaviour
     public bool isPlaceable = true;
     public Block exploredFrom;
     Vector2Int gridPos;
-    [SerializeField] Tower tower;
     const int gridSize = 10;
+    const string towerParentName = "Towers";
 
     public int GetGridSize()
     {
@@ -32,9 +32,7 @@ public class Block : MonoBehaviour
             if (isPlaceable)
             {
 
-                //Instantiate(tower, gameObject.transform);
-                Instantiate(tower, transform.position+(Vector3.up*10), Quaternion.identity) ;
-                isPlaceable = false;
+                FindObjectOfType<TowerFactory>().AddTower(this);
                 print(gameObject.name);
 
             }

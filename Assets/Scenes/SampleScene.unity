@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393096027}
   - component: {fileID: 393096028}
+  - component: {fileID: 393096029}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -571,6 +572,20 @@ MonoBehaviour:
   startPoint: {fileID: 402951028}
   endPoint: {fileID: 2037636780}
   isRunning: 1
+--- !u!114 &393096029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393096026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc141a15e585964f910b7165a7937a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerLimit: 5
+  tower: {fileID: 5097493832461818997, guid: ae2acce9ab33f8e438f85e304d523da8, type: 3}
 --- !u!114 &402951028 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 567066870579118559, guid: 63c0702eb4a70934cb3cfda87673545a, type: 3}
@@ -2647,7 +2662,6 @@ MonoBehaviour:
   isExplored: 0
   isPlaceable: 1
   exploredFrom: {fileID: 0}
-  tower: {fileID: 0}
 --- !u!4 &1492524122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4320373430648300, guid: eaf585f6d1c526346860421fbfbc3de4, type: 3}
